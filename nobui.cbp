@@ -37,10 +37,17 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
+			<Add option="-std=c99" />
 		</Compiler>
+		<Unit filename="button.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="sdl_subsystem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sdl_subsystem.h" />
+		<Unit filename="widget.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -57,12 +57,12 @@ def encode_font(image, dimensions):
 def represent_bytes(buffer):
     """Pretty print `buffer` "a la C"."""
     start = "unsigned char bytes[] = {\n\t"
-    step = 128//10
+    per_line = 12
+    number_of_lines = math.ceil(len(buffer)//per_line)
     lines = []
-    for i in range(step):
-        lines.append(
-            ', '.join(('0x{:02x}'.format(
-                c) for c in buffer[(i*step):(i*step)+step])))
+    for i in range(number_of_lines):
+        line = buffer[per_line*i:(per_line*i)+per_line]
+        lines.append(', '.join('0x{:02x}'.format(c) for c in line))
     return start + ',\n\t'.join(lines) + '\n};'
 
 
